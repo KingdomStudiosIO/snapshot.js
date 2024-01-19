@@ -69,7 +69,8 @@ export default class Client {
 
   async sign(web3: Web3Provider | Wallet, address: string, message, types) {
     // @ts-ignore
-    const signer = web3?.getSigner ? web3.getSigner() : web3;
+    console.log("test123")
+    const signer = web3?.getSigner ? web3.getSigner(address) : web3;
     const checksumAddress = getAddress(address);
     message.from = message.from ? getAddress(message.from) : checksumAddress;
     if (!message.timestamp)
